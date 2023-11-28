@@ -36,8 +36,8 @@ class Contacts extends User{
 
     add(){
         super.get()
-        console.log(super.get())
         dataContact.push(userData)
+        console.log(super.get())
     }
 }
 
