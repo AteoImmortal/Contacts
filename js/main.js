@@ -25,5 +25,22 @@ const userData = {
 }
 
 const user1 = new User(userData)
-
 console.log(user1)
+
+
+
+class Contacts extends User{
+    constructor(data){
+        super(data);
+    }
+
+    add(){
+        super.get()
+        console.log(super.get())
+        dataContact.push(userData)
+    }
+}
+
+const dataContact = [];
+const contacts = new Contacts(dataContact);
+console.log(contacts)
