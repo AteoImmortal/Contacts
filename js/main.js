@@ -1,3 +1,10 @@
+
+    // id: 1,
+    // name: 'Denis',
+    // phone: '+375445889335',
+    // email: 'ateo.immortal228@gmail.com',
+    // address: 'Minsk'
+
 class User {
     constructor(data) {
         this.data = data;
@@ -16,31 +23,40 @@ class User {
     }
 }
 
-const userData = {
-    id: 1,
-    name: 'Denis',
-    phone: '+375445889335',
-    email: 'ateo.immortal228@gmail.com',
-    address: 'Minsk'
-}
-
-const user1 = new User(userData)
-console.log(user1)
-
-
-
-class Contacts extends User{
-    constructor(data){
-        super(data);
+class Contacts{
+    constructor(){
+        this.contactsData = [
+            new User ({
+                id: '1',
+                name: 'Denis',
+                phone: '+375445889335',
+                email: 'ateo.immortal228@gmail.com',
+                address: 'Minsk'
+            })
+        ];
     }
 
-    add(){
-        super.get()
-        dataContact.push(userData)
-        console.log(super.get())
+    add(userData){
+        this.contactsData.push(new User(userData));
+    }
+
+    editContactUser(id, updatedUserData){
+        this.contactsData = this.contactsData.map((user) => {
+            if(user.data.id === id){
+                user.edit(updatedUserData);
+            }
+
+            return user;
+        })
+    }
+
+    remove(id){
+        this.contactsData = this.contactsData.filter(({data: {id:userId}})=> userId!==id )
+    }
+
+    get(){
+        return this.contactsData;
     }
 }
 
-const dataContact = [];
-const contacts = new Contacts(dataContact);
-console.log(contacts)
+
