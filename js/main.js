@@ -1,10 +1,3 @@
-
-    // id: 1,
-    // name: 'Denis',
-    // phone: '+375445889335',
-    // email: 'ateo.immortal228@gmail.com',
-    // address: 'Minsk'
-
 class User {
     constructor(data) {
         this.data = data;
@@ -60,3 +53,71 @@ class Contacts{
 }
 
 
+class ContactApp extends Contacts {
+    constructor(){
+        super();
+        this.app = this.createRootElement();
+
+        document.body.appendChild(this.app);
+        this.addContactEvent();
+    }
+
+    createRootElement(){
+        const rootElement = document.createElement('div');
+        rootElement.classList.add('contacts');
+        rootElement.innerHTML = `
+            <div class='container'>
+                <div class='contacts__wrapper'>
+
+                    <div class='contacts__header'>
+                        <h2>Контакты</h2>
+                        <div class='contacts__form'>
+                            <input type='text' class='contact__name' placeholder='Имя'>
+                            <input type='text' class='contact__phone' placeholder='Телефон'>
+                            <input type='text' class='contact__email' placeholder='Почта'>
+                            <input type='text' class='contact__address' placeholder='Адрес'>
+                            <button class='contact__btn'>Добавить контакт</button>
+                        </div>
+                    </div>
+
+                    <div class='contact__body'>
+                        <h2>Список контактов</h2>
+                    </div>
+
+                </div>
+            </div>
+        `;
+        return rootElement
+    }
+
+    addContactEvent(){
+        const addBtn = document.querySelector('.contact__btn');
+        addBtn.addEventListener('click', ()=>{
+            this.onAdd();
+        })
+    }
+    
+    onAdd(){
+        const name = document.querySelector('.contact__name');
+        const phone = document.querySelector('.contact__phone');
+        const email = document.querySelector('.contact__email');
+        const address = document.querySelector('.contact__address');
+
+        const userData = {
+            id: new Date().getTime().toString(),
+            name: name.value,
+            phone: phone.value,
+            email: email.value,
+            address: address.value
+        }
+
+        this.add(userData)
+        name.value = '';
+        phone.value = '';
+        email.value = '';
+        address.value = '';
+    }
+}
+
+
+const app = new ContactApp();
