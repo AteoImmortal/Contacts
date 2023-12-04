@@ -117,6 +117,12 @@ class ContactApp extends Contacts {
         email.value = '';
         address.value = '';
     }
+
+    get(){
+        const getContactsData = super.get();
+        console.log('bla-bla');
+        console.log(getContactsData);
+    }
 }
 
 
