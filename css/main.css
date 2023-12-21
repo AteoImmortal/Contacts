@@ -3,12 +3,16 @@
     margin: 0;
 }
 
+ul{
+    list-style: none;
+}
+
 .container{
-    width: 900px;
+    width: 1200px;
     margin: 0 auto;
 }
 
-.contacts__wrapper {
+.contact__wrapper {
     padding: 50px 0;
     display: flex;
     flex-direction: column;
@@ -17,10 +21,17 @@
 
 h2{
     margin-bottom: 20px;
+    text-align: center;
 }
 
-.contacts__header {
-    margin-bottom: 50px;
+.contact__header {
+    width: 300px;
+    padding: 10px 0 20px;
+    margin: 0 auto 50px;
+
+    border: 2px solid #000000;
+    border-radius: 10px;
+    box-shadow: 15px 15px 15px #6a6a6a;
 }
 
 .contacts__form{
@@ -35,15 +46,81 @@ h2{
     height: 25px;
     padding: 5px 10px;
     font-size: 16px;
+    border-radius: 5px;
+    box-shadow: 3px 3px 5px #6a6a6a;
 }
 
 .contact__btn {
     width: 275px;
-    height: 30px;
-    padding: 5px;
+    padding: 7px;
     margin-top: 10px;
 
-    background-color: #fff2c7;
-    border: 1px solid #eee3c0;
+    background-color: #2600ff;
+    box-shadow: 3px 3px 5px #6a6a6a;
     border-radius: 20px;
+    color: #ffffff;
+}
+
+.contacts__items{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 30px;
+
+}
+
+.item{
+    width: 300px;
+    padding: 15px;
+
+    text-align-last: left;
+    display: flex;
+    flex-direction: column;
+    row-gap: 5px;
+    box-shadow: 3px 3px 5px #6a6a6a;
+    border-radius: 20px;
+    border: 2px solid #000;
+}
+
+.modal {
+    position: fixed;
+    top: 0;
+    bottom: 0;
+    right: 0;
+    left: 0;
+    background-color: rgba(0, 0, 0, .25);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.modal__wrapper {
+    
+    background: #fff;
+    padding: 25px;
+    border-radius: 25px;
+    min-height: 150px;
+    width: 400px;
+
+}
+
+.preloader {
+    position: fixed;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    background-color: rgba(0, 0, 0, .25);
+}
+
+.preloader__text{
+    font-size: 48px;
+    font-family: Arial, "Helvetica Neue", Helvetica, sans-serif;
+    
+    color: #ffffff;
 }
